@@ -80,6 +80,11 @@ object Matrix {
     new Matrix(matrixRDD)
   }
 
+  def sparseRDDToSparseMatrix(rdd: RDD[(Int, Int, Double)]): Matrix = {
+    // input: RDD of tuples of form (Row Index, Column Index, Value).
+    new Matrix(rdd)
+  }
+
   def diag(rdd: RDD[(Int, Double)]): Matrix = {
 
     val diagMatrix = rdd.
